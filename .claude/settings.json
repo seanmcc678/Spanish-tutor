@@ -1,0 +1,37 @@
+{
+  "extraKnownMarketplaces": {
+    "m98": {
+      "source": {
+        "source": "github",
+        "repo": "m98/fluent"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "fluent@m98": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/setup.sh\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/save-progress.sh\"",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
